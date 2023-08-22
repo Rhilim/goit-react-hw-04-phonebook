@@ -3,6 +3,7 @@ import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 import { PhoneBook } from './PhoneBook/PhoneBook';
 import { StyledTitle } from './PhoneBook/PhoneBook.styled';
+import { Wrapper } from './Wrapper';
 
 export class App extends Component {
   state = {
@@ -68,13 +69,13 @@ export class App extends Component {
     );
 
     return (
-      <>
+      <Wrapper>
         <StyledTitle>Phonebook</StyledTitle>
         <PhoneBook onAdd={this.addName} onReset={this.resetContacts}/>
         <StyledTitle>Contacts</StyledTitle>
         <Filter filter={filter} onChangeFilter={this.changeFilter} />
         <Contacts array={visibleNames} onDelete={this.handleDelete} />
-      </>
+      </Wrapper>
     );
   }
 }

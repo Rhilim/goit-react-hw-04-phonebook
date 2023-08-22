@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
   width: 120px;
   background-color: #1e90ff;
   color: #fff;
-  border: none;
+  border: solid 1px #fff;
   border-radius: 4px;
   :hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
@@ -42,9 +42,9 @@ export const StyledBtnReset = styled.button`
   align-items: center;
   padding: 4px;
   width: 120px;
-  background-color: red;
+  background-color: #1e90ff;
   color: #fff;
-  border: none;
+  border: solid 1px #fff;
   border-radius: 4px;
   :hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,

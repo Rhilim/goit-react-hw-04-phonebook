@@ -1,14 +1,14 @@
-import { StyledDeleteBtn, StyledList } from "./Contacts.styled";
+import { StyledDeleteBtn, StyledList, StyledListItem } from "./Contacts.styled";
 
 export const Contacts = ({ array, onDelete }) => {
   return (
     <>
       <StyledList>
         {array.map((el, index) => (
-          <li key={index}>
+          <StyledListItem key={index}>
             {el.name}: {el.number}
             <StyledDeleteBtn onClick={() => onDelete(el.id)}>delete</StyledDeleteBtn>
-          </li>
+          </StyledListItem>
         ))}
       </StyledList>
     </>

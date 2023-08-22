@@ -1,19 +1,32 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const StyledList = styled.ul`
-margin-left: 10px;
-list-style: none;
-padding: 0;
-display: flex;
-flex-direction: column;
-gap: 15px;
-`
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const StyledListItem = styled.li`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
 
 export const StyledDeleteBtn = styled.button`
-padding: 4px;
-width: 50px;
-background-color: #1E90FF;
-border: none;
-border-radius: 4px;
-margin-left: 15px;
-`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+  width: 50px;
+  background-color: #1e90ff;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 4px;
+  :hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+`;
