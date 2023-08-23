@@ -42,13 +42,13 @@ import { StyledTitle } from './PhoneBook/PhoneBook.styled';
   //   this.setState({contacts: []})
   // }
 
-  componentDidMount() {
-    const storedContacts = localStorage.getItem('phone-contacts');
+  // componentDidMount() {
+  //   const storedContacts = localStorage.getItem('phone-contacts');
   
-    if(storedContacts !== null) {
-      this.setState({contacts: JSON.parse(storedContacts)})
-    }
-  }
+  //   if(storedContacts !== null) {
+  //     this.setState({contacts: JSON.parse(storedContacts)})
+  //   }
+  // }
 
   // componentDidUpdate(prevProps, prevState) {
   //   if (this.state.contacts !== prevState.contacts) {

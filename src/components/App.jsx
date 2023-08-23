@@ -6,14 +6,20 @@ import { StyledTitle } from './PhoneBook/PhoneBook.styled';
 import { Wrapper } from './Wrapper';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    const storedContacts = localStorage.getItem('phone-contacts');
+    if (storedContacts !== null) {
+      return JSON.parse(storedContacts);
+    } 
+      return [];
+    
+  });
+
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
     localStorage.setItem('phone-contacts', JSON.stringify(contacts));
   }, [contacts]);
-
-  
 
   const addName = newName => {
     const findContact = contacts.find(item => item.name === newName.name);
@@ -37,8 +43,6 @@ export const App = () => {
   const resetContacts = () => {
     setContacts([]);
   };
-
- 
 
   // const componentDidMount = () => {
   //   const storedContacts = localStorage.getItem('phone-contacts');
