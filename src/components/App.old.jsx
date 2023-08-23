@@ -50,15 +50,15 @@ import { StyledTitle } from './PhoneBook/PhoneBook.styled';
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.contacts !== prevState.contacts) {
   
-      localStorage.setItem(
-        'phone-contacts',
-        JSON.stringify(this.state.contacts)
-      );
-    }
-  }
+  //     localStorage.setItem(
+  //       'phone-contacts',
+  //       JSON.stringify(this.state.contacts)
+  //     );
+  //   }
+  // }
 
   // render() {
   //   const { contacts, filter } = this.state;
