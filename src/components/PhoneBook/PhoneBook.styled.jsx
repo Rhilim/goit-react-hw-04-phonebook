@@ -17,7 +17,11 @@ export const StyledField = styled(Field)`
   height: 30px;
   border-radius: 4px;
   border: none;
-  background-color: skyblue;
+  background-color: #fff;
+  ::placeholder{
+    color: grey;
+    font-size: 1.2em;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -27,8 +31,8 @@ export const StyledButton = styled.button`
   padding: 4px;
   width: 120px;
   background-color: #1e90ff;
-  color: #fff;
-  border: solid 1px #fff;
+  color: aquamarine;
+  border: solid 1px aquamarine;
   border-radius: 4px;
   :hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
@@ -43,8 +47,8 @@ export const StyledBtnReset = styled.button`
   padding: 4px;
   width: 120px;
   background-color: #1e90ff;
-  color: #fff;
-  border: solid 1px #fff;
+  color: aquamarine;
+  border: solid 1px aquamarine;
   border-radius: 4px;
   :hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,

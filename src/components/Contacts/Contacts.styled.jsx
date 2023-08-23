@@ -22,8 +22,8 @@ export const StyledDeleteBtn = styled.button`
   padding: 4px;
   width: 50px;
   background-color: #1e90ff;
-  color: #fff;
-  border: solid 1px #fff;
+  color: aquamarine;
+  border: solid 1px aquamarine;
   border-radius: 4px;
   :hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,

@@ -1,81 +1,60 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 import { PhoneBook } from './PhoneBook/PhoneBook';
 import { StyledTitle } from './PhoneBook/PhoneBook.styled';
 import { Wrapper } from './Wrapper';
 
-export class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+export const App = () => {
+ const [contacts, setContacts] = useState([])
+ const [filter, setFilter] = useState('')
 
-  addName = newName => {
-    const findContact = this.state.contacts.find(
-      item => item.name === newName.name
-    );
+ const addName = newName => {
+  const findContact = contacts.find(
+    item => item.name === newName.name
+  );
 
-    if (findContact) {
-      return alert(`${newName.name} is already added`);
-    } else {
-      this.setState({ contacts: [...this.state.contacts, newName] });
-    }
-  };
+  if (findContact) {
+    return alert(`${newName.name} is already added`);
+  } else {
+    setContacts([...contacts, newName] );
+  }
+};
 
-  changeFilter = newValue => {
-    this.setState({
-      filter: newValue,
-    });
-  };
+const changeFilter = newValue => {
+  setFilter(newValue)};
 
-  handleDelete = contactId => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(
+  const handleDelete = contactId => {
+    setContacts(prevState => {
+          prevState.contacts.filter(
           contact => contact.id !== contactId
-        ),
-      };
+        )
     });
   };
 
-  resetContacts =() => {
-    this.setState({contacts: []})
+  const resetContacts =() => {
+    setContacts([])
   }
 
-  componentDidMount() {
-    const storedContacts = localStorage.getItem('phone-contacts');
+  // const componentDidMount = () => {
+  //   const storedContacts = localStorage.getItem('phone-contacts');
   
-    if(storedContacts !== null) {
-      this.setState({contacts: JSON.parse(storedContacts)})
-    }
-  }
+  //   if(storedContacts !== null) {
+  //     setContacts(JSON.parse(storedContacts))
+  //   }
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-  
-      localStorage.setItem(
-        'phone-contacts',
-        JSON.stringify(this.state.contacts)
-      );
-    }
-  }
-
-  render() {
-    const { contacts, filter } = this.state;
-
-    const visibleNames = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
-    );
+ const visibleNames = contacts.filter(contact =>
+  contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
+);
 
     return (
-      <Wrapper>
+    <Wrapper>
         <StyledTitle>Phonebook</StyledTitle>
-        <PhoneBook onAdd={this.addName} onReset={this.resetContacts}/>
+        <PhoneBook onAdd={addName} onReset={resetContacts}/>
         <StyledTitle>Contacts</StyledTitle>
-        <Filter filter={filter} onChangeFilter={this.changeFilter} />
-        <Contacts array={visibleNames} onDelete={this.handleDelete} />
+        <Filter filter={filter} onChangeFilter={changeFilter} />
+        <Contacts array={visibleNames} onDelete={handleDelete} />
       </Wrapper>
-    );
-  }
-}
+)};
+

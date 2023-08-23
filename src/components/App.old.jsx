@@ -4,43 +4,43 @@ import { Filter } from './Filter/Filter';
 import { PhoneBook } from './PhoneBook/PhoneBook';
 import { StyledTitle } from './PhoneBook/PhoneBook.styled';
 
-export class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+// export class App extends Component {
+  // state = {
+  //   contacts: [],
+  //   filter: '',
+  // };
 
-  addName = newName => {
-    const findContact = this.state.contacts.find(
-      item => item.name === newName.name
-    );
+  // addName = newName => {
+  //   const findContact = this.state.contacts.find(
+  //     item => item.name === newName.name
+  //   );
 
-    if (findContact) {
-      return alert(`${newName.name} is already added`);
-    } else {
-      this.setState({ contacts: [...this.state.contacts, newName] });
-    }
-  };
+  //   if (findContact) {
+  //     return alert(`${newName.name} is already added`);
+  //   } else {
+  //     this.setState({ contacts: [...this.state.contacts, newName] });
+  //   }
+  // };
 
-  changeFilter = newValue => {
-    this.setState({
-      filter: newValue,
-    });
-  };
+  // changeFilter = newValue => {
+  //   this.setState({
+  //     filter: newValue,
+  //   });
+  // };
 
-  handleDelete = contactId => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(
-          contact => contact.id !== contactId
-        ),
-      };
-    });
-  };
+  // handleDelete = contactId => {
+  //   this.setState(prevState => {
+  //     return {
+  //       contacts: prevState.contacts.filter(
+  //         contact => contact.id !== contactId
+  //       ),
+  //     };
+  //   });
+  // };
 
-  resetContacts =() => {
-    this.setState({contacts: []})
-  }
+  // resetContacts =() => {
+  //   this.setState({contacts: []})
+  // }
 
   componentDidMount() {
     const storedContacts = localStorage.getItem('phone-contacts');
@@ -60,21 +60,21 @@ export class App extends Component {
     }
   }
 
-  render() {
-    const { contacts, filter } = this.state;
+  // render() {
+  //   const { contacts, filter } = this.state;
 
-    const visibleNames = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
-    );
+  //   const visibleNames = contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
+  //   );
 
-    return (
-      <>
-        <StyledTitle>Phonebook</StyledTitle>
-        <PhoneBook onAdd={this.addName} onReset={this.resetContacts}/>
-        <StyledTitle>Contacts</StyledTitle>
-        <Filter filter={filter} onChangeFilter={this.changeFilter} />
-        <Contacts array={visibleNames} onDelete={this.handleDelete} />
-      </>
-    );
-  }
-}
+//     return (
+//       <>
+//         <StyledTitle>Phonebook</StyledTitle>
+//         <PhoneBook onAdd={this.addName} onReset={this.resetContacts}/>
+//         <StyledTitle>Contacts</StyledTitle>
+//         <Filter filter={filter} onChangeFilter={this.changeFilter} />
+//         <Contacts array={visibleNames} onDelete={this.handleDelete} />
+//       </>
+//     );
+//   }
+// }
