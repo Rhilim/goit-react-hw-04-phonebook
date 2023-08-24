@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import toast, {Toaster} from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 import { PhoneBook } from './PhoneBook/PhoneBook';
@@ -11,9 +11,8 @@ export const App = () => {
     const storedContacts = localStorage.getItem('phone-contacts');
     if (storedContacts !== null) {
       return JSON.parse(storedContacts);
-    } 
-      return [];
-    
+    }
+    return [];
   });
 
   const [filter, setFilter] = useState('');
@@ -22,16 +21,14 @@ export const App = () => {
     localStorage.setItem('phone-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  
-
   const addName = newName => {
-    // const notify = () => toast(`${newName.name} is already added`);
     const findContact = contacts.find(item => item.name === newName.name);
     if (findContact) {
       // return alert(`${newName.name} is already added`);
       return toast.error(`${newName.name} is already in the phonebook`, {
         duration: 4000,
-        position: 'top-center',})
+        position: 'top-center',
+      });
     } else {
       setContacts([...contacts, newName]);
     }
@@ -62,7 +59,7 @@ export const App = () => {
       <StyledTitle>Contacts</StyledTitle>
       <Filter filter={filter} onChangeFilter={changeFilter} />
       <Contacts array={visibleNames} onDelete={handleDelete} />
-      <Toaster/>
+      <Toaster />
     </Wrapper>
   );
 };
