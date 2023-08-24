@@ -24,7 +24,6 @@ export const App = () => {
   const addName = newName => {
     const findContact = contacts.find(item => item.name === newName.name);
     if (findContact) {
-      // return alert(`${newName.name} is already added`);
       return toast.error(`${newName.name} is already in the phonebook`, {
         duration: 4000,
         position: 'top-center',
